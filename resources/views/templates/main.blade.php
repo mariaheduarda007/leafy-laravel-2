@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="itens">
                 <ul class="navbar-nav ms-auto">
 
-                    @can('viewAny', App\Models\Aluno::class)
+                    @can('viewAny', App\Models\Book::class)
                         <li class="nav-item me-2">
                             <a href="{{ route('aluno.index') }}" class="nav-link">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFF" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
@@ -43,9 +43,9 @@
                                 <span class="ps-1 text-white">Alunos</span>
                             </a>
                         </li>
-                    @endcan
+                    <!-- @endcan -->
 
-                    @can('viewAny', App\Models\Curso::class)
+                    @can('viewAny', App\Models\Book::class)
                         <li class="nav-item me-2">
                             <a href="" class="nav-link">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFF" class="bi bi-easel2-fill" viewBox="0 0 16 16">

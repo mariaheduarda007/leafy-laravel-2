@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(CursoSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(ResourceSeeder::class);
         $this->call(PermissionSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(BookSeeder::class);
     }
 }
