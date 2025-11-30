@@ -26,8 +26,8 @@
                     <input
                         type="text"
                         class="form-control"
-                        name="nome"
-                        placeholder="Título"
+                        name="title"
+                        placeholder="Titulo"
                         value="{{ $book->title }}"
                     />
                     <label for="title">Título</label>
@@ -59,6 +59,20 @@
                         value="{{ $book->genre }}"
                     />
                     <label for="genre">Gênero</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" >
+                <div class="form-floating mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="sinopsis"
+                        placeholder="Sinopsis"
+                        value="{{ $book->sinopsis }}"
+                    />
+                    <label for="sinopsis">Sinopse</label>
                 </div>
             </div>
         </div>

@@ -21,7 +21,7 @@ class BookController extends Controller
     public function create()
     {
         Gate::authorize('create', Book::class);
-        return view('book.create', );
+        return view('book.create');
     }
     public function store(Request $request)
     {
@@ -32,6 +32,7 @@ class BookController extends Controller
         $book->releaseDate = $request->releaseDate;
         $book->genre = $request->genre;
         $book->author = $request->author;
+        $book->sinopsis = $request->sinopsis;
         $book->save();
 
         if ($request->hasFile('cover')) {
@@ -66,8 +67,11 @@ class BookController extends Controller
         Gate::authorize('update', $book);
 
         if (isset($book)) {
-            $book->title = mb_strtoupper($request->title, encoding: 'UTF-8');
+            $book->title = $request->title;
             $book->releaseDate = $request->releaseDate;
+            $book->author = $request->author;
+            $book->genre = $request->genre;
+            $book->sinopsis = $request->sinopsis;
 
             if ($request->hasFile('cover')) {
                 $extensao_arq = $request->file('cover')->getClientOriginalExtension();

@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        @yield('head')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <title>{{ $titulo }}</title>
-
-    @vite('resources/css/main.css')
-
+        <title>{{ $titulo }}</title>
+        
+        @vite('resources/css/main.css')
+        
+        
     <style>
         .nav-pills .nav-link.active {
             color: #FFF !important;
             background-color: #4A6745 !important;
         }
-
+        
         .nav-pills .nav-link {
             color: #6c757d !important;
         }
-    </style>
+        </style>
+
 </head>
 
 <body>
@@ -109,8 +112,8 @@
 
             <div class="col d-flex justify-content-end">
                 @if($rota != '')
-                    @can("create", $class)
-                        <a href="{{ route($rota) }}" class="btn btn-secondary ms-2">
+                    @can("create", App\Models\Book::class)
+                        <a href="{{ route($rota) }}" style="background-color: #4A6745" class="btn btn-secondary ms-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"
                                 class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                 <path
@@ -203,4 +206,5 @@
 <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 @yield('script')
 
-</html>
+</html> 
+
