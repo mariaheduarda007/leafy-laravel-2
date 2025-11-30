@@ -40,6 +40,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role_id' => 1,
         ]);
 
         event(new Registered($user));
@@ -49,6 +50,6 @@ class RegisteredUserController extends Controller
         // Registra o Evento de Autenticação - Permissão
         event(new AuthenticationEvent(Auth::user()->role_id));
 
-        return redirect(route('home', absolute: false));
+        return redirect(route('book.index', absolute: false));
     }
 }
