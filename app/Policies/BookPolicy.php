@@ -2,17 +2,17 @@
 
 namespace App\Policies;
 
-use App\Models\Aluno;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
+use App\Models\Book;
 use App\Http\Controllers\PermissionController;
+
 
 class BookPolicy
 {
-
     public function viewAny(User $user): bool
     {
         return PermissionController::isAuthorized('book.index');
+       
     }
 
 
@@ -38,6 +38,8 @@ class BookPolicy
     {
         return PermissionController::isAuthorized('book.delete');
     }
-
-
+    public function __construct()
+    {
+        //
+    }
 }
