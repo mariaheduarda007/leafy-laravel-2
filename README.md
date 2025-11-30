@@ -1,8 +1,9 @@
-## cadastro de livro
-## alteração de livro
-## exclusao de livro 
-## registro e login de user
-## home de manager (lista de livro e botoes de livro)
-## home user (lista de livro e pesquisar livros)
-## profile em ambas homes
-## report de livros cadastrados pelo manager na semana
+## cadastro de livro maria
+## alteração de livro maria
+## exclusao de livro ok
+## registro e login de user ange
+## home de manager (lista de livro e botoes de livro) ange
+## home user (lista de livro e pesquisar livros) ange
+## profile em ambas homes ok
+## editar profile maria
+## report de livros cadastrados pelo manager na semana 
