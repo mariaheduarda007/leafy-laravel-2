@@ -10,17 +10,28 @@ use Illuminate\Support\Facades\Gate;
 class BookController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         Gate::authorize('viewAny', Book::class);
-        $books = Book::all();
-        // dd($books);
+        $query = Book::query();
+
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where('title', 'like', "%{$search}%")
+                ->orWhere('author', 'like', "%{$search}%")
+                ->orWhere('genre', 'like', "%{$search}%")
+                ->orWhere('releaseDate', 'like', "%{$search}%");
+        }
+
+         $books = $query->paginate(10)->withQueryString();
+
         return view('book.index', compact('books'));
     }
 
     public function create()
     {
         Gate::authorize('create', Book::class);
+
         return view('book.create');
     }
     public function store(Request $request)
@@ -101,6 +112,5 @@ class BookController extends Controller
         $books = Book::all();
         $pdf = Pdf::loadView('book.report', ['books' => $books]);
         return $pdf->stream('document.pdf');
-
     }
 }

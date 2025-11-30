@@ -12,9 +12,14 @@ nav {
 body{
     font-family: "IM FELL French Canon";
     background-color: #b5c7b1;
-    
+    overflow-x: hidden;
+    margin: 0;
 }
 
 .header{
     color: #4A6745;
+}
+.dropdown-menu .dropdown-item {
+    padding: 0;
+    font-size: 0.9rem;
 }
