@@ -1,3 +1,5 @@
+@vite(['resources/css/main.css'])
+
 @extends('templates/main',
 [
 'titulo'=>"Leafy",
@@ -68,6 +70,10 @@
         @endforeach
     </tbody>
 </table>
-{{ $books->withQueryString()->links() }}
+<div >
+
+{{ $books->links() }}
+
+</div>
 
 @endsection

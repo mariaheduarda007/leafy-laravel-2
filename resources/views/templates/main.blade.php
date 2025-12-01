@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
+    
+    <head>
+    <link rel="icon" type="image/png"  href="{{ asset('assets/img/leafy.png') }}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -175,7 +176,7 @@
     </div>
 </div>
 
-<div class="modal fade" tabindex="-1" id="detailsModal">
+<!-- <div class="modal fade" tabindex="-1" id="detailsModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -188,7 +189,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <script type="text/javascript">
     function showRemoveModal(id, nome) {
