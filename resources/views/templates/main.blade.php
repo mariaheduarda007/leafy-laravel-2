@@ -136,8 +136,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-danger">Operação de Remoção</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="removeModal" onclick="closeRemoveModal()"
+                <h5 class="modal-title text-danger"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="removeModal" onclick="closeModal()"
                     aria-label="Close"></button>
             </div>
             <input type="hidden" id="id_remove">
@@ -145,7 +145,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-block align-content-center"
-                    onclick="closeRemoveModal()">
+                    onclick="closeModal('#removeModal')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"
                         class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
                         <path
@@ -166,6 +166,21 @@
     </div>
 </div>
 
+<div class="modal fade" tabindex="-1" id="detailsModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="detailsModal" onclick="closeModal('#detailsModal')"
+                    aria-label="Close"></button>
+            </div>
+            <input type="hidden" id="id_details">
+            <div class="modal-body text-secondary">
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     function showRemoveModal(id, nome) {
         $('#id_remove').val(id);
@@ -174,8 +189,14 @@
         $("#removeModal").modal('show');
     }
 
-    function closeRemoveModal() {
-        $("#removeModal").modal('hide');
+    function showDetailsModal(title, sinopsis) {
+        $('#detailsModal').modal().find('.modal-title').html(title)
+        $('#detailsModal').modal().find('.modal-body').html("<b>" + sinopsis + "</b>");
+        $("#detailsModal").modal('show');
+    }
+
+    function closeModal(id) {
+        $(id).modal('hide');
     }
 
     function remove() {
