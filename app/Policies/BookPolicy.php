@@ -15,13 +15,6 @@ class BookPolicy
        
     }
 
-
-    public function view(User $user, Book $book): bool
-    {
-        return PermissionController::isAuthorized('book.show');
-    }
-
-
     public function create(User $user): bool
     {
         return PermissionController::isAuthorized('book.create');
@@ -37,6 +30,11 @@ class BookPolicy
     public function delete(User $user, Book $book): bool
     {
         return PermissionController::isAuthorized('book.delete');
+    }
+
+    public function report(User $user): bool
+    {
+        return PermissionController::isAuthorized('book.report');
     }
     public function __construct()
     {

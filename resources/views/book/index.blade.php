@@ -3,7 +3,6 @@
 'titulo'=>"Leafy",
 'cabecalho' => 'Lista de Livros',
 'rota' => 'book.create',
-'relatorio' => '',
 'class' => App\Models\Book::class,
 ]
 )

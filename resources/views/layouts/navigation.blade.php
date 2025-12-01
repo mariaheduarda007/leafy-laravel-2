@@ -52,9 +52,13 @@
                                         {{ __('Log Out') }}
                                     </x-dropdown-link>
 
+                                     @can("report")
                                      <x-dropdown-link :href="route('report')">
                                     {{ __('Report') }}
                                 </x-dropdown-link>
+                                @endcan
+
+
                                 </form>
                             </x-slot>
                         </x-dropdown>

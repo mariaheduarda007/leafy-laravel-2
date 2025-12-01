@@ -16,13 +16,12 @@ class PermissionSeeder extends Seeder
         $data = [
             
             // USUARIO
-            ["role_id" => 1, "resource_id" => 1, "permission" => 0],
-            ["role_id" => 1, "resource_id" => 2, "permission" => 1],
-            ["role_id" => 1, "resource_id" => 3, "permission" => 1],
+            ["role_id" => 1, "resource_id" => 1, "permission" => 1],
+            ["role_id" => 1, "resource_id" => 2, "permission" => 0],
+            ["role_id" => 1, "resource_id" => 3, "permission" => 0],
             ["role_id" => 1, "resource_id" => 4, "permission" => 0],
             ["role_id" => 1, "resource_id" => 5, "permission" => 0],
-            ["role_id" => 1, "resource_id" => 6, "permission" => 1],
-            ["role_id" => 1, "resource_id" => 7, "permission" => 1],
+           
         
             // ADMINISTRADOR
             ["role_id" => 2, "resource_id" => 1, "permission" => 1],
@@ -30,8 +29,7 @@ class PermissionSeeder extends Seeder
             ["role_id" => 2, "resource_id" => 3, "permission" => 1],
             ["role_id" => 2, "resource_id" => 4, "permission" => 1],
             ["role_id" => 2, "resource_id" => 5, "permission" => 1],
-            ["role_id" => 2, "resource_id" => 6, "permission" => 1],
-            ["role_id" => 2, "resource_id" => 7, "permission" => 1],
+
         ];
 
         DB::table('permissions')->insert($data);

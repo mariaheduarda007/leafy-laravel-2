@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- @section('head')
+    <link rel="icon" type="image/png" href="{{ asset('leafy.png') }}">
+
+@endsection -->
+
     <title>{{ $titulo }}</title>
 
     @vite('resources/css/main.css')
@@ -27,8 +33,10 @@
 <body>
     <nav class="navbar sticky-top navbar-expand-md ">
         <div class="container-fluid ">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-leaf-fill ms-4" viewBox="0 0 16 16">
-                <path d="M1.4 1.7c.217.289.65.84 1.725 1.274 1.093.44 2.885.774 5.834.528 2.02-.168 3.431.51 4.326 1.556C14.161 6.082 14.5 7.41 14.5 8.5q0 .344-.027.734C13.387 8.252 11.877 7.76 10.39 7.5c-2.016-.288-4.188-.445-5.59-2.045-.142-.162-.402-.102-.379.112.108.985 1.104 1.82 1.844 2.308 2.37 1.566 5.772-.118 7.6 3.071.505.8 1.374 2.7 1.75 4.292.07.298-.066.611-.354.715a.7.7 0 0 1-.161.042 1 1 0 0 1-1.08-.794c-.13-.97-.396-1.913-.868-2.77C12.173 13.386 10.565 14 8 14c-1.854 0-3.32-.544-4.45-1.435-1.124-.887-1.889-2.095-2.39-3.383-1-2.562-1-5.536-.65-7.28L.73.806z" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-leaf-fill ms-4"
+                viewBox="0 0 16 16">
+                <path
+                    d="M1.4 1.7c.217.289.65.84 1.725 1.274 1.093.44 2.885.774 5.834.528 2.02-.168 3.431.51 4.326 1.556C14.161 6.082 14.5 7.41 14.5 8.5q0 .344-.027.734C13.387 8.252 11.877 7.76 10.39 7.5c-2.016-.288-4.188-.445-5.59-2.045-.142-.162-.402-.102-.379.112.108.985 1.104 1.82 1.844 2.308 2.37 1.566 5.772-.118 7.6 3.071.505.8 1.374 2.7 1.75 4.292.07.298-.066.611-.354.715a.7.7 0 0 1-.161.042 1 1 0 0 1-1.08-.794c-.13-.97-.396-1.913-.868-2.77C12.173 13.386 10.565 14 8 14c-1.854 0-3.32-.544-4.45-1.435-1.124-.887-1.889-2.095-2.39-3.383-1-2.562-1-5.536-.65-7.28L.73.806z" />
             </svg>
             <a href="{{ route('book.index') }}" class="navbar-brand">
                 <span class="title ms-3 fs-7">leafy</span>
@@ -44,26 +52,15 @@
             </button>
             <div class="collapse navbar-collapse" id="itens">
                 <ul class="navbar-nav ms-auto">
-                    <!-- 
-                    @can('viewAny', App\Models\Book::class)
-                    <li class="nav-item me-2">
-                        <a href="" class="nav-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                            </svg>
-                            <span class="ps-1 text-white">Buscar Livros</span>
-                        </a>
-                    </li>
-                    @endcan -->
-
-                    <li class="nav-item dropdown me-5">
+                                       <li class="nav-item dropdown me-5">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="white"
+                                class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                             </svg>
                             @auth
-                            <span
-                                class="ps-1 fs-5 text-white">{{ Auth::user() ? explode(" ", Auth::user()->name)[0] : 'Anônimo' }}</span>
+                                <span
+                                    class="ps-1 fs-5 text-white">{{ Auth::user() ? explode(" ", Auth::user()->name)[0] : 'Anônimo' }}</span>
                             @endauth
                         </a>
                         <ul class="dropdown-menu">
@@ -82,8 +79,8 @@
                                 <li>
                                     <a href="" onclick="event.preventDefault(); this.closest('form').submit();"
                                         class="dropdown-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="white" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                                            class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
                                                 d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
                                             <path fill-rule="evenodd"
@@ -93,6 +90,18 @@
                                     </a>
                                 </li>
                             </form>
+                            @can('report', App\Models\Book::class)
+                                <li>
+                                    <a href="{{ route('report') }}" class="dropdown-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                                            class="bi bi-person" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                        </svg>
+                                        <span class="ps-1 text-secondary ">Report</span>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 </ul>
@@ -104,21 +113,21 @@
         <div class="row">
             <div class="col">
                 @if($cabecalho != '')
-                <h3 class="header"><b>{{ $cabecalho }}</b></h3>
+                    <h3 class="header"><b>{{ $cabecalho }}</b></h3>
                 @endif
             </div>
 
             <div class="col d-flex justify-content-end">
                 @if($rota != '')
-                @can("create", App\Models\Book::class)
-                <a href="{{ route($rota) }}" style="background-color: #4A6745" class="btn btn-secondary ms-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"
-                        class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                        <path
-                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                    </svg>
-                </a>
-                @endcan
+                    @can("create", App\Models\Book::class)
+                        <a href="{{ route($rota) }}" style="background-color: #4A6745" class="btn btn-secondary ms-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"
+                                class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                            </svg>
+                        </a>
+                    @endcan
                 @endif
             </div>
         </div>
@@ -136,7 +145,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-danger"></h5>
+                <h5 class="modal-title text-danger"> Operação de Remoção </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="removeModal" onclick="closeModal()"
                     aria-label="Close"></button>
             </div>
@@ -171,8 +180,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-dark"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="detailsModal" onclick="closeModal('#detailsModal')"
-                    aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="detailsModal"
+                    onclick="closeModal('#detailsModal')" aria-label="Close"></button>
             </div>
             <input type="hidden" id="id_details">
             <div class="modal-body text-secondary">
@@ -185,7 +194,7 @@
     function showRemoveModal(id, nome) {
         $('#id_remove').val(id);
         $('#removeModal').modal().find('.modal-body').html("");
-        $('#removeModal').modal().find('.modal-body').append("<b>'" + nome + "'</b> ?");
+        $('#removeModal').modal().find('.modal-body').append("<b> Deseja remover '" + nome + "'</b> ?");
         $("#removeModal").modal('show');
     }
 

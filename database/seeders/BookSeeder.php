@@ -30,6 +30,15 @@ class BookSeeder extends Seeder
             ["title" => "O Conto da Aia", "sinopsis" => "Em uma teocracia opressora, Offred é forçada a servir como a 'aia' de uma família poderosa, lutando pela própria identidade e por uma chance de liberdade.", "releaseDate" => "1985", "genre" => "Distopia", "author" => "Margaret Atwood"],
 
         ];
-        DB::table('books')->insert($data);
+        $insertData = [];
+
+        foreach ($data as $item) {
+            $item['created_at'] = now();
+            $item['updated_at'] = now();
+            $insertData[] = $item;
+        }
+
+        DB::table('books')->insert($insertData);
+
     }
 }

@@ -111,8 +111,13 @@ class BookController extends Controller
     {
         Gate::authorize('viewAny', Book::class);
 
-        $books = Book::all();
-        $pdf = Pdf::loadView('report', ['books' => $books]);
+        $user = auth()->user(); 
+        $books = Book::where('created_at', '>=', now()->startOfWeek())->get();
+
+        $pdf = Pdf::loadView('report', [
+            'books' => $books,
+            'user' => $user
+        ]);
 
         return $pdf->stream('document.pdf');
     }

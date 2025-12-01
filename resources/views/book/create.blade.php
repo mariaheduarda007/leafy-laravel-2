@@ -1,9 +1,8 @@
 @extends('templates/main',
     [
         'titulo'=>"",
-        'cabecalho' => 'Novo Livro',
-        'rota' => '',
-        'relatorio' => '',
+        'cabecalho' => 'Novo Livro',  
+        'rota' => '', 
     ]
 )
 @section('conteudo')

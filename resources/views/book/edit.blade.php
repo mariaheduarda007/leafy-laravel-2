@@ -4,7 +4,7 @@
         'titulo'=>"Leafy",
         'cabecalho' => 'Alterar Livro',
         'rota' => '',
-        'relatorio' => '',
+
     ]
 )
 @section('conteudo')

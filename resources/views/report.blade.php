@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Relatório de Livros Cadastrados </title>
+    <title>Relatório de Cadastros </title>
     <style>
 
         body {
@@ -15,7 +15,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg); /* Centraliza e gira o texto */
+            transform: translate(-50%, -50%) rotate(-45deg); 
             font-size: 7em;
             color: #888;
             opacity: 0.3;
@@ -121,22 +121,15 @@
 </head>
 <body>
     <div class="texto-marca-dagua"> LEAFY </div>
-    <div class="texto-restrito-cima"> DOCUMENTO GERADO PELO SISTEMA AULA </div>
+    <div class="texto-restrito-cima"> DOCUMENTO GERADO PELO SISTEMA </div>
     <hr>
     <table style="margin: 0px auto; width: 100%">
         <tbody>
             <tr>
-                <td style="width: 75px; text-align: left;">
-                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/assets/img/logo_ifpr.png'))) }}" width="78" height="78" style="border-radius: 25%;">
-                </td>
+   
                 <td style="width: 1fr; text-align: center;">
-                    <span style="font-size: 18px;">GOVERNO FEDERAL DO BRASIL</span>
-                    <div style="font-size: 18px;">MINISTÉRIO DA EDUCAÇÃO</div>
-                    <div style="font-size: 18px; font-weight: bold;">INSTITUTO FEDERAL</div>
-                    <div style="font-size: 18px; font-weight: bold;">PARANAGUÁ</div>
-                </td>
-                <td style="width: 75px; text-align: right;">
-                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/assets/img/logo_ifpr.png'))) }}" width="90" height="90" style="border-radius: 25%;">
+                    <div style="font-size: 18px;">LEAFY</div>
+                    <span style="font-size: 18px;">LIVROS CADASTRADOS NA SEMANA </span>
                 </td>
             </tr>
         </tbody>
@@ -146,9 +139,23 @@
     </div>
     <hr>
 
-    <div class="texto-restrito-baixo" style="position: absolute; bottom: 1px;"> DOCUMENTO GERADO PELO SISTEMA AULA </div>
+    <div class="header" style="text-align:left; margin-bottom: 15px;">
+    <strong style="font-size: 14pt;">Administrador Responsável</strong>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 11pt;">
+        <tr>
+            <td style="padding: 3px;"><strong>Nome:</strong> {{ $user->name }}</td>
+            <td style="padding: 3px;"><strong>Email:</strong> {{ $user->email }}</td>
+        </tr>
+        <tr>
+            <td style="padding: 3px;"><strong>Gerado em:</strong> {{ now()->format('d/m/Y H:i') }}</td>
+            <td style="padding: 3px;"><strong>Semana:</strong> {{ now()->startOfWeek()->format('d/m/Y') }}</td>
+        </tr>
+    </table>
+</div>
 
-    <div class="identification-header">IDENTIFICAÇÃO</div>
+<hr>
+
+    <div class="texto-restrito-baixo" style="position: absolute; bottom: 1px;"> DOCUMENTO GERADO PELO SISTEMA </div>
     @foreach($books as $book)
         <table class="info-table identification-section">
             <tbody>

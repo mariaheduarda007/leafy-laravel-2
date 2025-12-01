@@ -15,13 +15,11 @@ class ResourceSeeder extends Seeder
     {
         $data = [
             // CURSO
-            ["name" => "book.create"],     // 1
-            ["name" => "book.index"],       // 2
-            ["name" => "book.show"],       // 3
-            ["name" => "book.edit"],       // 4
-            ["name" => "book.delete"],     // 5
-            ["name" => "book.search"],     // 6
-            ["name" => "profile.index"],   // 7
+            ["name" => "book.index"],       // 1
+            ["name" => "book.create"],     // 2
+            ["name" => "book.edit"],       // 3
+            ["name" => "book.delete"],     // 4
+            ["name" => "book.report"],     // 5
         ];
         DB::table('resources')->insert($data);
     }
