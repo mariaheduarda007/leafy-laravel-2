@@ -110,7 +110,7 @@ class BookController extends Controller
     public function report()
     {
         $books = Book::all();
-        $pdf = Pdf::loadView('book.report', ['books' => $books]);
-        return $pdf->stream('document.pdf');
+        $pdf = Pdf::loadView('report.book', ['books' => $books]);
+        // return $pdf->stream('document.pdf');
     }
 }
