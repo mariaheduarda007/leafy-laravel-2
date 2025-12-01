@@ -119,7 +119,7 @@
                     </svg>
                 </a>
                 @endcan
-                @endif            
+                @endif
             </div>
         </div>
         <hr>

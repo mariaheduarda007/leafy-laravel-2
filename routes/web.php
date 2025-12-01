@@ -1,17 +1,24 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 
-Route::redirect('/', '/register');
-
 Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('book.index');
+    }
+
+    return redirect()->route('register');
+});
+
+Route::get('/home', function () {
     return redirect()->route('book.index');
-})->name('home')->middleware(['auth', 'verified']);
+})->middleware(['auth', 'verified'])->name('home');
 
 Route::resource('/book', BookController::class)->middleware(['auth', 'verified']);
-Route::get('/report/book', [BookController::class, 'report'])->name('report.book')->middleware(['auth', 'verified']);
+Route::get('/report', [BookController::class, 'report'])->name('report')->middleware(['auth', 'verified']);
 
 
 Route::middleware('auth')->group(function () {
@@ -20,4 +27,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

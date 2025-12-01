@@ -52,7 +52,7 @@
                                         {{ __('Log Out') }}
                                     </x-dropdown-link>
 
-                                     <x-dropdown-link :href="route('report.book')">
+                                     <x-dropdown-link :href="route('report')">
                                     {{ __('Report') }}
                                 </x-dropdown-link>
                                 </form>

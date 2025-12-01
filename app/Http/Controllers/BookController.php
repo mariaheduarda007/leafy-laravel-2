@@ -23,7 +23,7 @@ class BookController extends Controller
                 ->orWhere('releaseDate', 'like', "%{$search}%");
         }
 
-         $books = $query->paginate(10)->withQueryString();
+        $books = $query->paginate(10)->withQueryString();
 
         return view('book.index', compact('books'));
     }
@@ -109,8 +109,11 @@ class BookController extends Controller
 
     public function report()
     {
+        Gate::authorize('viewAny', Book::class);
+
         $books = Book::all();
-        $pdf = Pdf::loadView('report.book', ['books' => $books]);
-        // return $pdf->stream('document.pdf');
+        $pdf = Pdf::loadView('report', ['books' => $books]);
+
+        return $pdf->stream('document.pdf');
     }
 }
